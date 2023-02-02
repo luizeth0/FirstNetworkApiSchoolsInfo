@@ -6,8 +6,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.firstnetworkapi.databinding.ActivityMainBinding
 
-private const val TAG = "MainActivity"
-
 class MainActivity : AppCompatActivity() {
 
     private var binding: ActivityMainBinding? = null
@@ -20,10 +18,15 @@ class MainActivity : AppCompatActivity() {
         val navHost = supportFragmentManager.findFragmentById(R.id.frag_container) as NavHostFragment
         setupActionBarWithNavController(navHost.navController)
 
-        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        //supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 
+    /**
+     * Set up the function onBackPressed to return with the arrow on the navController
+     */
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return super.onSupportNavigateUp()
+    }
     override fun onDestroy() {
         super.onDestroy()
         binding = null
