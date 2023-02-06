@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="10dp"
     android:elevation="5dp"
     android:layout_margin="10dp"
@@ -12,32 +13,55 @@
         android:padding="8dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="ExtraText">
 
-        <TextView
-            android:id="@+id/school_name"
-            android:text="@string/school_name"
+        <TwoLineListItem
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/baseline_school_24"
+                android:contentDescription="@string/school_name" />
+            <TextView
+                android:id="@+id/school_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/school_name"
+                android:paddingStart="5dp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@+id/imageView"/>
+
+        </TwoLineListItem>
+
+
 
         <TextView
             android:id="@+id/school_address"
-            android:text="@string/address"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="@string/address"
+            android:textColor="@color/purple_200"/>
 
         <TextView
             android:id="@+id/school_phone"
-            android:text="@string/phone_number"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="@string/phone_number" />
 
         <Button
             android:id="@+id/more_btn"
-            android:text="@string/more"
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:shadowColor="#000000"
+            android:text="@string/more"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

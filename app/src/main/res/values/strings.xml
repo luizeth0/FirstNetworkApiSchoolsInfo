@@ -3,6 +3,8 @@
     <string name="school_name">SCHOOL NAME</string>
     <string name="address">ADDRESS</string>
     <string name="phone_number">PHONE NUMBER</string>
+    <string name="website">Website</string>
+    <string name="overview">Overview</string>
     <string name="more">MORE</string>
     <string name="someOtherString">Other</string>
     <!-- TODO: Remove or change this placeholder text -->

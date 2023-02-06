@@ -80,6 +80,7 @@ class SchoolViewHolder(
             onClickedSchool(school)
         }
     }
+
 }
 
 class LetterViewHolder(
