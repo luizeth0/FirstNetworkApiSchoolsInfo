@@ -1,5 +1,7 @@
 package com.example.firstnetworkapi.adapter
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -79,8 +81,20 @@ class SchoolViewHolder(
         binding.moreBtn.setOnClickListener {
             onClickedSchool(school)
         }
-    }
 
+        //Open Implicit intent (Maps) by clicking address
+        binding.schoolAddress.setOnClickListener {
+            val location = school.location?.substringAfterLast("(")
+            val latitude = location?.substringBefore(",")
+            val longitude = school.location?.substringAfterLast(",")?.substringBefore(")")
+            val gmmIntentUri = Uri.parse("geo:$latitude,$longitude"+"?q="+"$latitude,$longitude(Here is your school selection: ${school.schoolName})")
+            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+            mapIntent.setPackage("com.google.android.apps.maps")
+            it.context.startActivity(mapIntent)
+
+        }
+
+    }
 }
 
 class LetterViewHolder(
